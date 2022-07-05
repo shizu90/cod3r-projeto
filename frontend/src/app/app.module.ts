@@ -12,7 +12,10 @@ import { SidebarComponent } from './components/template/sidebar/sidebar.componen
 import { FooterComponent } from './components/template/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component'
 import { MatInputModule } from '@angular/material/input';
-import { RegisterComponent } from './pages/register/register.component'
+import { MatIconModule } from '@angular/material/icon'
+import { MatButtonModule } from '@angular/material/button'
+import { RegisterComponent } from './pages/register/register.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { RegisterComponent } from './pages/register/register.component'
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

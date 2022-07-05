@@ -1,0 +1,57 @@
+@import '../../../styles.scss';
+
+.register-container {
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+        color: $snow;
+    }
+    .change-link {
+        color: $snow;
+        text-decoration: underline;
+        cursor: pointer;
+        margin-top: 30px;
+    }
+
+    .submit-button {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .submit-button button{
+        background-color: $light-green;
+        width: 100px;
+    }
+    h2 {
+        color: $snow;
+    }
+    hr {
+        border-radius: 100%;
+    }
+    div {
+        background-color: $gray;
+        text-align: center;
+        border-radius: 10px;
+        div {
+            margin: 20px;
+        }
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+        .form-input {
+            width: 350px;
+            input {
+                color: $snow;
+            }
+            button {
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+}

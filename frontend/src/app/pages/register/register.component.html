@@ -1,1 +1,56 @@
-<p>register works!</p>
+<app-header></app-header>
+<div class="register-container">
+    <div>
+        <div *ngIf="page === 'register'">
+            <h2>Sign up</h2>
+            <hr>
+            <form>
+                <mat-form-field appearance="fill" class="form-input">
+                    <mat-label>Email</mat-label>
+                    <input type="email" placeholder="Ex.: usuario@gmail.com" matInput>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="form-input">
+                    <mat-label>Nome</mat-label>
+                    <input type="text" placeholder="Ex.: usuario123" matInput>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="form-input">
+                    <mat-label>Senha</mat-label>
+                    <input [type]="hide ? 'text' : 'password' " placeholder="Ex.: sjaiofod2094" matInput>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" type="button">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="form-input">
+                    <mat-label>Confirmação de senha</mat-label>
+                    <input type="password" matInput>
+                </mat-form-field>
+                <span class="submit-button">
+                    <button mat-raised-button>Sign up</button>
+                </span>
+                <a class="change-link" (click)="page = 'login'">Já possui uma conta? Faça o login</a>
+            </form>
+        </div>
+        <div *ngIf="page === 'login'">
+            <h2>Login</h2>
+            <hr>
+            <form>
+                <mat-form-field appearance="fill" class="form-input">
+                    <mat-label>Email</mat-label>
+                    <input type="email" placeholder="Ex.: usuario@gmail.com" matInput>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="form-input">
+                    <mat-label>Senha</mat-label>
+                    <input [type]="hide ? 'text' : 'password' " placeholder="Ex.: sjaiofod2094" matInput>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" type="button">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+                <span class="submit-button">
+                    <button mat-raised-button>Login</button>
+                </span>
+                <a class="change-link" (click)="page='register'">Não possui uma conta? Registre-se aqui</a>
+            </form>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
