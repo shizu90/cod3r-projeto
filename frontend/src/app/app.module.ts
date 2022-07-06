@@ -14,7 +14,13 @@ import { HomeComponent } from './pages/home/home.component'
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
+import { MatMenuModule } from '@angular/material/menu'
+import { MatTreeModule } from '@angular/material/tree'
+import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { FormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http'
 import { RegisterComponent } from './pages/register/register.component';
+import { FormComponent } from './components/form/form.component';
 
 
 @NgModule({
@@ -24,7 +30,8 @@ import { RegisterComponent } from './pages/register/register.component';
     SidebarComponent,
     FooterComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +42,12 @@ import { RegisterComponent } from './pages/register/register.component';
     MatListModule,
     MatInputModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatMenuModule,
+    MatTreeModule,
+    MatSnackBarModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

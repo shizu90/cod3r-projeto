@@ -15,3 +15,11 @@ $dark-magenta: #6a002d;
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: $snow;}
 
+.snack-bar-success {
+    background-color: $light-green;
+    color: $snow;
+}
+.snack-bar-error {
+    background-color: $light-red;
+    color: $snow;
+}

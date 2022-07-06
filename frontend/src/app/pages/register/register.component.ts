@@ -20,9 +20,6 @@ export class RegisterComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher()
 
-  hide = false
-  page = 'login'
-
   constructor() { }
 
   ngOnInit(): void {
