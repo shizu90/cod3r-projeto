@@ -1,0 +1,18 @@
+@import '../../../styles.scss';
+
+.error-card {
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 20%;
+    background: linear-gradient(90deg, $light-magenta, $dark-magenta);
+    color: $snow;
+
+    span {
+        padding-right: 10px;
+        margin-right: 10px;
+        border-right: 2px solid $snow;
+    }
+}
