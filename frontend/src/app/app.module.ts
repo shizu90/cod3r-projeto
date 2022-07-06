@@ -19,6 +19,7 @@ import { MatTreeModule } from '@angular/material/tree'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
+import { MatCardModule } from '@angular/material/card'
 import { RegisterComponent } from './pages/register/register.component';
 import { FormComponent } from './components/form/form.component';
 
@@ -47,6 +48,7 @@ import { FormComponent } from './components/form/form.component';
     MatTreeModule,
     MatSnackBarModule,
     FormsModule,
+    MatCardModule,
     HttpClientModule
   ],
   providers: [],
