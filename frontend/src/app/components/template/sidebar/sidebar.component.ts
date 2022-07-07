@@ -1,7 +1,8 @@
+import { NestedTreeControl } from '@angular/cdk/tree';
 import { Component, OnInit } from '@angular/core';
-import { FlatTreeControl } from '@angular/cdk/tree';
-import { MatTreeFlattener, MatTreeFlatDataSource } from '@angular/material/tree';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { MatTreeNestedDataSource } from '@angular/material/tree';
+import { Category } from './categories.model';
+import { SidebarService } from './sidebar.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,20 +11,21 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 })
 export class SidebarComponent implements OnInit {
 
-  raw = localStorage.getItem('session')
-  data = this.raw ? JSON.parse(this.raw) : null
+  constructor(private sidebarService: SidebarService) { }
 
-  TREE_DATA: any = null
-  constructor(private http: HttpClient) {
-
-  }
+  rawData = localStorage.getItem('session')
+  sessionData = this.rawData ? JSON.parse(this.rawData) : null
+  TREE_DATA: Category[] = [{name: '', id: 0, parentId: null, children: []}]
+  nestedDataSource = new MatTreeNestedDataSource<Category>()
+  nestedTreeControl = new NestedTreeControl<Category>(node => node.children)
 
   ngOnInit(): void {
-    console.log(this.data.token)
-    this.http.get('http://localhost:3000/categories/tree', {
-      headers: new HttpHeaders().set('Authorization', this.data ? `bearer ${this.data.token}` : ''),
-      observe: 'response'
-    }).subscribe((data) => {console.log(data)})
+    this.sidebarService.getTree(this.sessionData.token).subscribe((data) => this.TREE_DATA = data)
+    this.nestedDataSource.data = this.TREE_DATA
+  }
+
+  hasNestedChild(index: number, node: Category) {
+    return node.children?.length === undefined
   }
 
 }

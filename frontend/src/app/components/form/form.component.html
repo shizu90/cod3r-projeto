@@ -24,7 +24,7 @@
         <span class="submit-button">
             <button mat-raised-button type="button" (click)="createUser()">Sign up</button>
         </span>
-        <a class="change-link" (click)="page = 'login'">Já possui uma conta? Faça o login</a>
+        <a class="change-link" (click)="changePage('login')">Já possui uma conta? Faça o login</a>
     </form>
 </div>
 <div *ngIf="page === 'login'">
@@ -45,6 +45,6 @@
         <span class="submit-button">
             <button mat-raised-button type="button" (click)="login()">Login</button>
         </span>
-        <a class="change-link" (click)="page='register'">Não possui uma conta? Registre-se aqui</a>
+        <a class="change-link" (click)="changePage('register')">Não possui uma conta? Registre-se aqui</a>
     </form>
 </div>

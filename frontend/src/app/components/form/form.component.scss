@@ -13,6 +13,7 @@ button {
 .submit-button {
     display: flex;
     justify-content: flex-end;
+    color: $snow;
 }
 
 .submit-button button{
@@ -35,8 +36,10 @@ form {
     display: flex;
     flex-direction: column;
     margin-top: 30px;
+    color: $snow;
     .form-input {
         width: 350px;
+        color: $snow;
         input {
             color: $snow;
         }
@@ -46,4 +49,8 @@ form {
             cursor: pointer;
         }
     }
+}
+
+::placeholder{
+    color: rgba(255, 255, 255, 0.5) !important;
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
-import { UserService } from './user.service'
-import { UserModel } from './user.model'
+import { FormService } from './form.service'
+import { User } from './user.model'
 import { HttpErrorResponse } from '@angular/common/http'
 import { Router } from '@angular/router'
 
@@ -16,29 +16,38 @@ export class FormComponent implements OnInit {
   confirmPassword: string = ''
   hide = false
   page = 'login'
-
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private formService: FormService, private router: Router) { }
 
   ngOnInit(): void {
   }
+
+  changePage(page: string):void {
+    this.page = page
+    this.name = ''
+    this.email = ''
+    this.password = ''
+    this.confirmPassword = ''
+  }
+
   createUser(): void {
-    const user: UserModel = {name: this.name, email: this.email, password: this.password, confirmPassword: this.confirmPassword}
+    const user: User = {name: this.name, email: this.email, password: this.password, confirmPassword: this.confirmPassword}
     this.name = ''
     this.password = ''
     this.confirmPassword = ''
     this.email = ''
-    this.userService.createUser(user).subscribe(() => {
-      this.userService.showMessage(`Usuário ${user.name} criado`, true)
+    this.formService.createUser(user).subscribe(() => {
+      this.formService.showMessage(`Usuário ${user.name} criado`, true)
       this.page = 'login'
-    }, (err: HttpErrorResponse) => {this.userService.showMessage(`${err.error}`, false)})
+    }, (err: HttpErrorResponse) => {this.formService.showMessage(`${err.error}`, false)})
   }
 
   login(): void {
-    const user: UserModel = {name: '', email: this.email, password: this.password, confirmPassword: ''}
-    this.userService.login(user).subscribe((data) => {
+    const user: User = {name: '', email: this.email, password: this.password, confirmPassword: ''}
+    this.formService.login(user).subscribe((data) => {
       localStorage.setItem('session', JSON.stringify(data.body))
-      if(data.status >= 200 && data.status < 400) this.userService.showMessage(`${data.body.name} logado com sucesso`, true)
-      this.router.navigate(['/home'])
-    }, (err: HttpErrorResponse) => {this.userService.showMessage(`${err.error}`, false)}) 
+      if(data.status >= 200 && data.status < 400) this.formService.showMessage(`${data.body.name} logado com sucesso`, true)
+      this.router.navigate(['/dashboard/home'])
+    }, (err: HttpErrorResponse) => {this.formService.showMessage(`${err.error}`, false)}) 
   }
+
 }

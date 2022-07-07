@@ -11,9 +11,12 @@ $gray: #363636;
 $dark-gray: #262626;
 $light-magenta: #cf4966;
 $dark-magenta: #6a002d;
+$blue: #4287f5;
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: $snow;}
+
 
 .snack-bar-success {
     background-color: $light-green;
@@ -21,5 +24,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
 }
 .snack-bar-error {
     background-color: $light-red;
+    color: $snow;
+}
+.mat-form-field-label {
     color: $snow;
 }

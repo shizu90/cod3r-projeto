@@ -7,7 +7,8 @@
     flex-direction: column;
     justify-content: center;
     height: 10%;
-
+    background-color: $gray;
+    color: $snow;
     span:first-child {
         margin-top: 20px;
     }
@@ -15,5 +16,11 @@
     p {
         font-weight: 200;
         font-size: 18px;
+        span {
+            font-weight: 500;
+            span {
+                color: $blue;
+            }
+        }
     }
 }

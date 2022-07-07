@@ -1,0 +1,3 @@
+<app-header></app-header>
+<app-sidebar *ngIf="sessionData"></app-sidebar>
+<app-error-card *ngIf="sessionData === null" [statusCode]="500" [errorMessage]="'Página inacessível'"></app-error-card>

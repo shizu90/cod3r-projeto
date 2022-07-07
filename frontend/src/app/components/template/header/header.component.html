@@ -1,17 +1,12 @@
-<mat-toolbar class="header mat-elevation-z4">
-    <span class="icon-left" *ngIf="sessionData !== null">
-        <i class="material-icons">
-            keyboard_arrow_left
-        </i>
-    </span>
-    <span>
-        <img src="assets/img/logo.png">
-    </span>
-    <span *ngIf="sessionData !== null">
-        <button mat-button [matMenuTriggerFor]="menu" class="user-button">Usuário</button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item *ngIf="sessionData.admin">Administração</button>
-            <button mat-menu-item (click)="logout()">Sair</button>
-        </mat-menu>
-    </span>
+<mat-toolbar class="header mat-elevation-z4" [ngClass]="sessionData !== null ? 'space-between' : 'centered'">
+        <span>
+            <img src="assets/img/logo.png" (click)="goesToHome()">
+        </span>
+        <span *ngIf="sessionData !== null">
+            <button mat-button [matMenuTriggerFor]="menu" class="user-button">{{sessionData.name}}<mat-icon>person</mat-icon></button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item *ngIf="sessionData.admin" (click)="goesToAdmin()"><mat-icon>settings</mat-icon>Administração</button>
+                <button mat-menu-item (click)="logout()"><mat-icon>keyboard_return</mat-icon>Sair</button>
+            </mat-menu>
+        </span>
 </mat-toolbar>
